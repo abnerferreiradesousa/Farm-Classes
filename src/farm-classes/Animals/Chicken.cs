@@ -8,14 +8,21 @@ public class Chicken {
   public Chicken? Mother;
 
   public Chicken (int eggsPerWeek, Chicken? mother) {
-    if (EggsPerWeek < 0) 
+    try
     {
-      throw new ArgumentException("Passe argumentos válidos, seu palerma!");
-    } 
-    else 
+      if (EggsPerWeek < 0) 
+      {
+        throw new ArgumentException("Passe argumentos válidos, seu palerma!");
+      } 
+      else 
+      {
+        EggsPerWeek = eggsPerWeek;
+        Mother = mother;
+      }
+    }
+    catch (ArgumentException ex) 
     {
-      EggsPerWeek = eggsPerWeek;
-      Mother = mother;
+      throw ex;
     }
   }
 
@@ -29,4 +36,5 @@ public class Chicken {
       EggsPerWeek = eggsPerWeek;
     }
   }
+
 }

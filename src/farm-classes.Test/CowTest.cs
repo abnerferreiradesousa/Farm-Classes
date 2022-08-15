@@ -56,5 +56,6 @@ public class CowTest
     public void TestCowInstantiationNullOrEmptyBreed(int weight, string breed)
     {
         Action act = () => new Cow(weight, breed);
-        act.Should().Throw<ArgumentException>();    }
+        act.Should().Throw<ArgumentException>();    
+    }
 }

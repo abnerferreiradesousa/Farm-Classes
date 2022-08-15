@@ -24,7 +24,9 @@ public class PigTest
     [MemberData(nameof(PigData))]
     public void TestPigInstantiation(int age, int expectedAge)
     {
-        throw new NotImplementedException();
+        var instance = new Pig(age);
+        instance.Age.Should().Be(expectedAge);
+
     }
 
     [Trait("Category", "2 - Crie uma classe Pig")]
@@ -32,6 +34,7 @@ public class PigTest
     [MemberData(nameof(PigDataInvalidAge))]
     public void TestPigInstantiationInvalidAge(int age)
     {
-        throw new NotImplementedException();
+        Action act = () => new Pig(age);
+        act.Should().Throw<ArgumentException>();
     }
 }
